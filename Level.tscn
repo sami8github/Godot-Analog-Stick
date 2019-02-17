@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Level.vs" type="Script" id=1]
+[ext_resource path="res://analog/analog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://P1.png" type="Texture" id=3]
+[ext_resource path="res://P2.png" type="Texture" id=4]
+[ext_resource path="res://CheckButton.vs" type="Script" id=5]
+[ext_resource path="res://player_GD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player_VisualScript.tscn" type="PackedScene" id=7]
+
+[node name="Level" type="Node"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_bottom = 1.0
+margin_right = 311.0
+
+[node name="Analog" parent="CanvasLayer/Control" instance=ExtResource( 2 )]
+position = Vector2( 147.742, 213.769 )
+_isDynamicallyShowing = true
+_listenerNodePath = "/root/Level/player_GDscript"
+_name = "Left_Analog"
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -308.0
+
+[node name="Analog" parent="CanvasLayer/Control2" instance=ExtResource( 2 )]
+position = Vector2( 185.062, 224.022 )
+_listenerNodePath = "/root/Level/player_GDscript"
+_name = "Right_Analog"
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -130.0
+margin_top = 20.0
+margin_right = 130.0
+margin_bottom = 71.0
+focus_mode = 0
+custom_icons/off = ExtResource( 3 )
+custom_icons/on = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "Press to change player"
+script = ExtResource( 5 )
+
+[node name="player_GDscript" parent="." instance=ExtResource( 6 )]
+position = Vector2( 406.084, 155.022 )
+
+[node name="Player_VisualScript" parent="." instance=ExtResource( 7 )]
+position = Vector2( 407.136, 317.527 )
+
+[connection signal="pressed" from="CanvasLayer/CheckButton" to="CanvasLayer/CheckButton" method="_on_CheckButton_pressed"]
