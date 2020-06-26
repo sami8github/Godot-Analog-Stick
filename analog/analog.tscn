@@ -5,7 +5,6 @@
 [ext_resource path="res://analog/small_circle.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
-
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate:a")
@@ -21,7 +20,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate:a")
@@ -37,7 +35,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath("ball:position")
 tracks/0/interp = 1
@@ -64,7 +61,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate:a")
 tracks/0/interp = 1
@@ -97,4 +93,3 @@ anims/alpha_in = SubResource( 1 )
 anims/alpha_out = SubResource( 2 )
 anims/ball_center = SubResource( 3 )
 anims/default = SubResource( 4 )
-

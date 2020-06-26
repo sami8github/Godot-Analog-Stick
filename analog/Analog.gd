@@ -2,8 +2,9 @@ extends Node2D
 
 const INACTIVE_IDX = -1;
 export var _isDynamicallyShowing = false
-export var _listenerNodePath = ""
-export var _name = ""
+export var _name = "analog-stick-1"
+
+signal force_changed(event_current_force, event_analog_stick_name)
 
 var ball
 var bg 
@@ -26,11 +27,6 @@ func _ready():
 	parent = get_parent();
 	halfSize = bg.texture.get_size() /2;
 	squaredHalfSizeLenght = halfSize.x*halfSize.y;
-	
-	if (_listenerNodePath != "" && _listenerNodePath!=null):
-		_listenerNodePath = get_node(_listenerNodePath)
-	elif _listenerNodePath=="":
-		_listenerNodePath = null
 
 	_isDynamicallyShowing = _isDynamicallyShowing and parent is Control
 	if _isDynamicallyShowing:
@@ -126,9 +122,8 @@ func calculateForce(var x, var y):
 	
 	sendSignal2Listener()
 
-func sendSignal2Listener():
-	if (_listenerNodePath != null):
-		_listenerNodePath.analog_force_change(currentForce,_name) #self)
+func sendSignal2Listener() -> void:
+	emit_signal("force_changed", currentForce, _name)
 
 
 func isPressed(event):
@@ -142,9 +137,7 @@ func isReleased(event):
 		return !event.pressed
 	elif event is InputEventMouseButton:
 		return !event.pressed
-	
-func update_listnerNode():
-	if (_listenerNodePath != "" && _listenerNodePath!=null):
-		_listenerNodePath = get_node(_listenerNodePath)
-	elif _listenerNodePath=="":
-		_listenerNodePath = null
+
+
+func _on_Analog_force_changed(event_current_force, event_analog_stick_name) -> void:
+	pass # Replace with function body.
