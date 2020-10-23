@@ -20,7 +20,6 @@ margin_right = 311.0
 [node name="Analog" parent="CanvasLayer/Control" instance=ExtResource( 2 )]
 position = Vector2( 147.742, 213.769 )
 _isDynamicallyShowing = true
-_listenerNodePath = "/root/Level/player_GDscript"
 _name = "Left_Analog"
 
 [node name="Control2" type="Control" parent="CanvasLayer"]
@@ -31,7 +30,6 @@ margin_left = -308.0
 
 [node name="Analog" parent="CanvasLayer/Control2" instance=ExtResource( 2 )]
 position = Vector2( 185.062, 224.022 )
-_listenerNodePath = "/root/Level/player_GDscript"
 _name = "Right_Analog"
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
@@ -44,14 +42,21 @@ margin_bottom = 71.0
 focus_mode = 0
 custom_icons/off = ExtResource( 3 )
 custom_icons/on = ExtResource( 4 )
+pressed = true
 enabled_focus_mode = 0
-text = "Press to change player"
+text = "Press to change player to"
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="player_GDscript" parent="." instance=ExtResource( 6 )]
 position = Vector2( 406.084, 155.022 )
 
 [node name="Player_VisualScript" parent="." instance=ExtResource( 7 )]
 position = Vector2( 407.136, 317.527 )
-
+[connection signal="force_changed" from="CanvasLayer/Control/Analog" to="player_GDscript" method="_on_Analog_force_changed"]
+[connection signal="force_changed" from="CanvasLayer/Control/Analog" to="Player_VisualScript" method="_on_Analog_force_changed"]
+[connection signal="force_changed" from="CanvasLayer/Control2/Analog" to="player_GDscript" method="_on_Analog_force_changed"]
+[connection signal="force_changed" from="CanvasLayer/Control2/Analog" to="Player_VisualScript" method="_on_Analog_force_changed"]
 [connection signal="pressed" from="CanvasLayer/CheckButton" to="CanvasLayer/CheckButton" method="_on_CheckButton_pressed"]

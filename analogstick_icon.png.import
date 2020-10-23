@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/P2.png-0936d7ef9bc7db6fa071a58c1d4f90df.stex"
+path="res://.import/analogstick_icon.png-6e2366c2803aa1081015772eddae1ff3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://P2.png"
-dest_files=[ "res://.import/P2.png-0936d7ef9bc7db6fa071a58c1d4f90df.stex" ]
+source_file="res://analogstick_icon.png"
+dest_files=[ "res://.import/analogstick_icon.png-6e2366c2803aa1081015772eddae1ff3.stex" ]
 
 [params]
 
